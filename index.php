@@ -1,3 +1,29 @@
+<?php
+require_once("db.php");
+
+$query = "SELECT * FROM tb_config_index LIMIT 1";
+
+$stmt = $conn->prepare($query);
+$stmt->execute();
+
+$registro = $stmt->fetch(PDO::FETCH_ASSOC);
+
+
+if ($registro) {
+  // O primeiro registro foi encontrado, você pode acessar os valores das colunas
+  $title = $registro['title_index'];
+  $twitter = $registro['link_twitter'];
+  $facebook = $registro['link_facebook'];
+  $instagram = $registro['link_instagram'];
+  $whatsapp = $registro['link_whatsapp'];
+  $descricao = $registro['descricao_index'];
+} else {
+  echo "Erro: Nenhum registro encontrado na tabela.";
+}
+?>
+
+
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -12,12 +38,12 @@
     <div class="circle"></div> <!--criando o circulo da pagina inicial-->
     <header><!--menu no topo da pagina-->
         <div class="centro">
-           <h2>Mia<span>Boutique</span></h2>
+           <h2><?php echo $title ?></h2>
             <nav class="menu">
-                <a class="link" href="index.php">Home</a>
+                <a class="link" href="index.html">Home</a>
                 <a class="link" href="info.html">Informações</a>
                 <a class="link" href="produtos.html">Produtos</a>
-                <a class="link" href="trabalhe.php">Trabalhe conosco</a>
+                <a class="link" href="trabalhe.html">Trabalhe conosco</a>
                 <a class="adm" href="login.php">Login</a>
             </nav>
         </div>
@@ -26,20 +52,19 @@
 
     <div class="content"> <!--Paragrafo da página-->
         <div class="text">
-            <h1>MIA <br><span>BOUTIQUE</span></h1>
-            <pre>Bem-vinda à nossa loja de roupas femininas, onde a elegância 
-encontra a modernidade! Aqui, acreditamos que cada mulher é única e merece se 
-sentir confiante e radiante em suas escolhas de moda. Nossa coleção cuidadosamente 
-selecionada de roupas e acessórios oferece uma fusão perfeita entre estilos clássicos 
-e tendências contemporâneas, para que você possa expressar sua personalidade de maneira autêntica.
-Bem-vinda ao seu novo destino de moda.</pre>
+            <h1><?php echo $title ?></h1>
+            <pre><?php echo $descricao ?></pre>
          <a href="produtos.html">COMPRAR</a> <!--Botão de comprar-->
         </div>
     </div>
     <ul class="icons"><!--icons das redes sociais-->
-        <li><a href="#"><img src="imagens/facebook.png" alt=""></a></li>
-        <li><a href="#"><img src="imagens/instagram.png" alt=""></a></li>
-        <li><a href="#"><img src="imagens/twitter.png" alt=""></a></li>
+        <?php 
+        if($facebook != ''){echo " <li><a href='$facebook'><img src='imagens/facebook.png' alt=''></a></li>";}  
+        if($instagram != ''){echo " <li><a href='$instagram'><img src='imagens/instagram.png' alt=''></a></li>";}
+        if($twitter != ''){echo " <li><a href='$twitter'><img src='imagens/twitter.png' alt=''></a></li>";}
+        if($whatsapp != ''){echo " <li><a href='$whatsapp'><img src='imagens/facebook.png' alt=''></a></li>";}
+        ?>
+        
     </ul>
    
 </section>
