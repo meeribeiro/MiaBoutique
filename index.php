@@ -62,7 +62,7 @@ if ($registro) {
         if($facebook != ''){echo " <li><a href='$facebook'><img src='imagens/facebook.png' alt=''></a></li>";}  
         if($instagram != ''){echo " <li><a href='$instagram'><img src='imagens/instagram.png' alt=''></a></li>";}
         if($twitter != ''){echo " <li><a href='$twitter'><img src='imagens/twitter.png' alt=''></a></li>";}
-        if($whatsapp != ''){echo " <li><a href='$whatsapp'><img src='imagens/facebook.png' alt=''></a></li>";}
+        if($whatsapp != ''){echo " <li><a href='$whatsapp'><img src='imagens/whatsapp.png' alt=''></a></li>";}
         ?>
         
     </ul>
