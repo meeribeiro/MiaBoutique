@@ -1,3 +1,33 @@
+<?php
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    require_once("db.php");
+    try {
+
+        $nome = $_POST['nome'];
+        $email = $_POST['email'];
+        $tel = $_POST['tel'];
+        $nascimento = $_POST['nascimento'];
+        $sobreVoce = $_POST['sobreVoce'];
+        $genero =  $_POST['genero'];
+       
+
+        $stmt = $conn->prepare("INSERT INTO tb_trabalheconosco (nm_pessoa, email_pessoa, nu_telefone, dt_nascimento, descricao_pessoa, fl_sexo) VALUES(:nm_pessoa, :email_pessoa, :nu_telefone, :dt_nascimento, :descricao_pessoa, :fl_sexo )");
+        $stmt->bindParam(':nm_pessoa', $nome);
+        $stmt->bindParam(':email_pessoa', $email);
+        $stmt->bindParam(':nu_telefone', $tel);
+        $stmt->bindParam(':dt_nascimento', $nascimento);
+        $stmt->bindParam(':descricao_pessoa', $sobreVoce);
+        $stmt->bindParam(':fl_sexo', $genero);
+
+        $stmt->execute();
+
+        header("Location: trabalhe.php");
+    } catch (PDOException $e) {
+        echo "Erro ao enviar curriculo: " . $e->getMessage();
+    }
+}
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -22,7 +52,7 @@
     </div>
 </header>
 <div class="centro" id="centroTrabalhe">
-    <form action="acao.php" method="POST">
+    <form action="trabalhe.php" method="POST">
         <div class="form-header">
             <div class="titulo">
                 <h1>Trabalhe conosco</h1>
@@ -68,14 +98,13 @@
 
 
         
-               <!--<label id="tituloGenero" for="genero">Gênero:</label>
+               <label id="tituloGenero" for="genero">Gênero:</label>
                 <div class="inputGenero">
                     <input type="radio" id="feminino" name="genero" value="Feminino">
                     <label for="feminino">Feminino</label><br>
                     <input type="radio" id="masculino" name="genero" value="Masculino">
                     <label for="masculino">Masculino</label>
                 </div>
-        -->
         </div>
 
         <div class="botaoEnviar">
