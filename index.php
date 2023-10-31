@@ -40,10 +40,10 @@ if ($registro) {
         <div class="centro">
            <h2><?php echo $title ?></h2>
             <nav class="menu">
-                <a class="link" href="index.html">Home</a>
+                <a class="link" href="index.php">Home</a>
                 <a class="link" href="info.html">Informações</a>
-                <a class="link" href="produtos.html">Produtos</a>
-                <a class="link" href="trabalhe.html">Trabalhe conosco</a>
+                <a class="link" href="produtos.php">Produtos</a>
+                <a class="link" href="trabalhe.php">Trabalhe conosco</a>
                 <a class="adm" href="login.php">Login</a>
             </nav>
         </div>

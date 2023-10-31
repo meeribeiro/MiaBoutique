@@ -63,7 +63,7 @@ if ($registro) {
                 </div>
 
                 <div class="inputBox">
-                    <label for="desc">Descrição do site:</label>
+                    <label for="desc">Descrição do Site:</label>
                     <textarea id="desc" name="desc" rows="5" cols="33" ><?php echo $descricao ?></textarea>
                 </div>
 

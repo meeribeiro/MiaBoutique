@@ -1,3 +1,29 @@
+
+<?php
+require_once("db.php");
+$id = $_GET["produto_id"];
+
+$query = "SELECT * FROM tb_produto WHERE id_produto = $id";
+
+
+$stmt = $conn->prepare($query);
+$stmt->execute();
+
+$registro = $stmt->fetch(PDO::FETCH_ASSOC);
+
+if ($registro) {
+
+  // O primeiro registro foi encontrado, você pode acessar os valores das colunas
+  $nome = $registro['nm_produto'];
+  $preco = $registro['preco_produto'];
+  $descricao = $registro['descricao_produto'];
+  $img = $registro['img_produto'];
+} else {
+    header("Location: produtos.php");
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
     <head>
@@ -15,7 +41,7 @@
             <nav class="menu">
                 <a class="link" href="index.php">Home</a>
                 <a class="link" href="info.html">Informações</a>
-                <a class="link" href="produtos.html">Produtos</a>
+                <a class="link" href="produtos.php">Produtos</a>
                 <a class="link" href="trabalhe.php">Trabalhe conosco</a>
             </nav>
         </div>
@@ -23,17 +49,17 @@
     <div class="centro">
         <div class="fotosProduto">
             <figure>
-                <img id="destaque" src="imagens/produtos/principal1.jpg"/>
+                <img id="destaque" src="<?php echo $img ?>"/>
             </figure>
             <div id="infoProduto">
-                <h1> Colete Longo Marrom </h1>
-                <h3> <span>por</span> R$ 50,00 </h3>
+                <h1> <?php echo $nome ?> </h1>
+                <h3> <span>por</span> R$ <?php echo $preco ?> </h3>
                 <span> em até 3x sem juros</span>
                 <hr>
                 <ul>
                     <p id="descricao"> Descrição do produto </p>
-                    <li> <span> Categoria: Casual. Colete </span> </li>
-                    <li> <span> Descrição: Campanha Outono 2023. Material Algodão </span> </li>
+                    <li> <span> Categoria:  </span> </li>
+                    <li> <span> Descrição: <?php echo $descricao ?> </span> </li>
                 </ul>
                 <button onclick="alertaComprar()"> Comprar </button>
             </div><!--infoProduto-->

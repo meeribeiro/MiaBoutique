@@ -30,21 +30,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <form action="admins.php" method="POST">
     
             <div class="todosInputs">
-           <!--<div class="inputBox">
-                    <label for="nome">Codigo de identificação do ADM:</label>
-                    <input id="nome" type="text" name="id" placeholder="Codigo de Identificação" required="required">
-                </div>-->
                 <div class="inputBox">
                     <label for="nome">Nome:</label>
-                    <input id="nome" type="text" name="nome" placeholder="Nome de usuário" required="required">
+                    <input id="nome" type="text" name="nome" placeholder="Nome de usuario" required="required">
                 </div>
                 <div class="inputBox">
                     <label for="email">E-mail:</label>
-                    <input id="email" type="email" name="email" placeholder="E-mail de usuário" required="required" >
+                    <input id="email" type="email" name="email" placeholder="email" required="required">
                 </div>
                 <div class="inputBox">
                     <label for="nome">Senha:</label>
-                    <input id="senha" type="password" name="senha" placeholder="Senha de usuário" required="required">
+                    <input id="senha" type="password" name="senha" placeholder="Senha" required="required">
                 </div>
                 
                 <div class="botaoEnviar">

@@ -106,3 +106,26 @@ textarea:focus-visible {
   background-color: #a0522d;
   color: #ffffff;
 }
+
+.tabela {
+  margin: 32px auto;
+}
+
+.selectBox {
+  margin: 1.5rem;
+}
+
+.selectBox label {
+  font-size: 0.8rem;
+  font-weight: bold;
+}
+
+.subTitle {
+  font-size: 0.8rem;
+  font-weight: bold;
+}
+
+.selectItems {
+  display: flex;
+  gap: 24px;
+}

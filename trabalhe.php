@@ -46,7 +46,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <nav class="menu">
             <a class="link" href="index.php">Home</a>
             <a class="link" href="info.html">Informações</a>
-            <a class="link" href="produtos.html">Produtos</a>
+            <a class="link" href="produtos.php">Produtos</a>
             <a class="link" href="trabalhe.php">Trabalhe conosco</a>
         </nav>
     </div>
