@@ -1,33 +1,6 @@
 <?php
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
     require_once("db.php");
-    try {
-
-        $nome = $_POST['nome'];
-        $email = $_POST['email'];
-        $tel = $_POST['tel'];
-        $nascimento = $_POST['nascimento'];
-        $sobreVoce = $_POST['sobreVoce'];
-        $genero =  $_POST['genero'];
-       
-
-        $stmt = $conn->prepare("INSERT INTO tb_trabalheconosco (nm_pessoa, email_pessoa, nu_telefone, dt_nascimento, descricao_pessoa, fl_sexo) VALUES(:nm_pessoa, :email_pessoa, :nu_telefone, :dt_nascimento, :descricao_pessoa, :fl_sexo )");
-        $stmt->bindParam(':nm_pessoa', $nome);
-        $stmt->bindParam(':email_pessoa', $email);
-        $stmt->bindParam(':nu_telefone', $tel);
-        $stmt->bindParam(':dt_nascimento', $nascimento);
-        $stmt->bindParam(':descricao_pessoa', $sobreVoce);
-        $stmt->bindParam(':fl_sexo', $genero);
-
-        $stmt->execute();
-
-        header("Location: trabalhe.php");
-    } catch (PDOException $e) {
-        echo "Erro ao enviar curriculo: " . $e->getMessage();
-    }
-}
 ?>
-
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -52,7 +25,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     </div>
 </header>
 <div class="centro" id="centroTrabalhe">
-    <form action="trabalhe.php" method="POST">
+    <form action="trabalhe_add.php" method="POST" enctype="multipart/form-data">
         <div class="form-header">
             <div class="titulo">
                 <h1>Trabalhe conosco</h1>
@@ -82,13 +55,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <input id="nascimento" type="date" name="nascimento" required="required">
             </div>
 
-
-            <!---
+            
             <div class="inputBox">
                 <label for="foto">Envie sua foto:</label>
                 <input id="foto" type="file" name="foto">
             </div>
-        -->
+        
             <div class="inputBox">
                 <label for="sobreVoce">Fale sobre você:</label>
                 <textarea id="sobreVoce" name="sobreVoce" rows="5" cols="33"
