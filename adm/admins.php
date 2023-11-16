@@ -36,11 +36,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 </div>
                 <div class="inputBox">
                     <label for="email">E-mail:</label>
-                    <input id="email" type="email" name="email" placeholder="email" required="required">
+                    <input id="email" type="email" name="email" placeholder="E-mail de usuario" required="required">
                 </div>
                 <div class="inputBox">
                     <label for="nome">Senha:</label>
-                    <input id="senha" type="password" name="senha" placeholder="Senha" required="required">
+                    <input id="senha" type="password" name="senha" placeholder="Senha de usuario" required="required">
                 </div>
                 
                 <div class="botaoEnviar">

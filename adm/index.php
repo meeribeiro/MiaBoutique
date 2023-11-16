@@ -35,10 +35,10 @@ if (!isset($_SESSION['autenticado']) || $_SESSION['autenticado'] !== true) {
             <a href="index.php?pagina=admins"><span class="nav-item">ADMS</span></a>
           </li>
           <li>
-            <a href="index.php?pagina=produtos"><span class="nav-item">PRODUTOS</span></a>
+            <a href="index.php?pagina=todos_produtos"><span class="nav-item">PRODUTOS</span></a>
           </li>
           <li>
-            <a href="index.php?pagina=adicionarprodutos"><span class="nav-item">NOVO PRODUTO</span></a>
+            <a href="index.php?pagina=produtos"><span class="nav-item">NOVO PRODUTO</span></a>
           </li>
           <li>
             <a href="index.php?pagina=categorias"><span class="nav-item">CATEGORIAS</span></a>
@@ -59,7 +59,7 @@ if (!isset($_SESSION['autenticado']) || $_SESSION['autenticado'] !== true) {
             if(file_exists($pagina.'.php')){
               include($pagina.'.php');
             }else{
-              include('adicionarprodutos.php');
+              include('pagina_inicial.php');
             }
           }else{
             include('pagina_inicial.php');

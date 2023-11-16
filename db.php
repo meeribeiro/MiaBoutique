@@ -1,8 +1,8 @@
 <?php
-    $db_host = "banco";
-    $db_name = "usuario";
-    $db_user = "usuario";
-    $db_pass = "senha";
+    $db_host = "200.19.1.18";
+    $db_name = "melissarodrigues";
+    $db_user = "melissarodrigues";
+    $db_pass = "123456";
 
 
     try{

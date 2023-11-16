@@ -13,7 +13,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $descricao = $_POST['descricao_produto'];
     $categoriasSelecionadas = $_POST['categorias'];
     $preco = $_POST['preco_produto'];
-    $ativo = true;
+    $ativo = $_POST['ativo'];
 
 
 
@@ -41,19 +41,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $stmtAssociacoes->execute();
         }
     
-        header("Location: index.php?pagina=adicionarprodutos");
+        header("Location: index.php?pagina=todos_produtos");
         exit();
 
 
     } else {
 
-        header("Location: index.php?pagina=adicionarprodutos&erro=1");
+        header("Location: index.php?pagina=produtos&erro=1");
     }
-
-
-
-
-
-    
 }
 ?>

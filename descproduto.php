@@ -5,9 +5,13 @@ $id = $_GET["produto_id"];
 
 $query = "SELECT * FROM tb_produto WHERE id_produto = $id";
 
+$queryCategoria = "SELECT c.nm_categoria FROM tb_categoria c INNER JOIN tb_categoriaproduto cp ON c.id_categoria = cp.id_categoria WHERE cp.id_produto = $id";
 
 $stmt = $conn->prepare($query);
 $stmt->execute();
+
+$stmtCategoria = $conn->prepare($queryCategoria);
+$stmtCategoria->execute();
 
 $registro = $stmt->fetch(PDO::FETCH_ASSOC);
 
@@ -58,7 +62,10 @@ if ($registro) {
                 <hr>
                 <ul>
                     <p id="descricao"> Descrição do produto </p>
-                    <li> <span> Categoria:  </span> </li>
+                    <li> <span> Categoria:  <?php while ($categoria = $stmtCategoria->fetch(PDO::FETCH_ASSOC)) {
+                                                $nomeCategoria = $categoria['nm_categoria'];
+                                                echo "$nomeCategoria. ";
+                                            }?></span> </li>
                     <li> <span> Descrição: <?php echo $descricao ?> </span> </li>
                 </ul>
                 <button onclick="alertaComprar()"> Comprar </button>

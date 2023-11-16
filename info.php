@@ -28,17 +28,9 @@
         }
 
     </script>
-    <header><!--menu no topo da pagina-->
-        <div class="centro">
-            <h2>Mia<span>Boutique</span></h2>
-            <nav class="menu">
-                <a class="link" href="index.php">Home</a>
-                <a class="link" href="info.html">Informações</a>
-                <a class="link" href="produtos.php">Produtos</a>
-                <a class="link" href="trabalhe.php">Trabalhe conosco</a>
-            </nav>
-        </div>
-    </header>
+
+    <?php include('menu.php'); ?><!--include do arquivo do menu-->
+
     <section class="info">
         <div class="centro">
             <h1> Entenda nossos tamanhos </h1>

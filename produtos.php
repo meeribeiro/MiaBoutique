@@ -17,20 +17,29 @@ $stmt->execute();
         <link href="css/estiloProdutos.css" rel="stylesheet" />
         <link href="css/estilo.css" rel="stylesheet" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+        <script type="text/javascript" src="js/arq.js"></script>
         <meta charset="utf-8">
     </head>
 <body>
-    <header><!--menu no topo da pagina-->
-        <div class="centro">
-           <h2>Mia<span>Boutique</span></h2>
-            <nav class="menu">
-                <a class="link" href="index.php">Home</a>
-                <a class="link" href="info.html">Informações</a>
-                <a class="link" href="produtos.php">Produtos</a>
-                <a class="link" href="trabalhe.php">Trabalhe conosco</a>
-            </nav>
-        </div>
-    </header>
+    <script>
+
+         /*MUDANDO A COR DOS NOMES QUANDO O MOUSE PASSA POR CIMA*/
+         function MudarCor(){
+            var nomes = document.getElementById("nomes");
+            nomes.style.color = "#A0522D";
+        }
+
+        function CorNormal() {
+            var nomes = document.getElementById("nomes");
+            nomes.style.color = "black";
+        }
+        
+    </script>
+
+
+    <?php include('menu.php'); ?><!--include do arquivo do menu-->
+
+
     <div class="centro" id="centroProduto">
     
         <?php
@@ -45,7 +54,7 @@ $stmt->execute();
         
             echo " <a href='descproduto.php?produto_id=$id'>
             <div class='card'>
-                <img id='$id' src='$foto'  onclick='esgotado()'>
+                <img id='$id' src='$foto'>
                 <p> $nomeProduto </p>
             </div> 
         </a>";

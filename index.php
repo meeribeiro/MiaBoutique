@@ -36,18 +36,9 @@ if ($registro) {
 </head>
 <body>
     <div class="circle"></div> <!--criando o circulo da pagina inicial-->
-    <header><!--menu no topo da pagina-->
-        <div class="centro">
-           <h2><?php echo $title ?></h2>
-            <nav class="menu">
-                <a class="link" href="index.php">Home</a>
-                <a class="link" href="info.html">Informações</a>
-                <a class="link" href="produtos.php">Produtos</a>
-                <a class="link" href="trabalhe.php">Trabalhe conosco</a>
-                <a class="adm" href="login.php">Login</a>
-            </nav>
-        </div>
-    </header>
+
+    <?php include('menu.php'); ?><!--include do arquivo do menu-->
+    
     <section>
 
     <div class="content"> <!--Paragrafo da página-->

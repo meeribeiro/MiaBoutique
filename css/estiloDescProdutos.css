@@ -9,7 +9,7 @@
 
 #destaque { 
     padding: 1%;
-    width: 60%;
+    width: 80%;
 }
 
 #infoProduto { 
@@ -80,7 +80,7 @@ button {
 button:hover {
     background-color: #c37957;
     color: #A0522D;
-
+}
 figure {
     overflow: hidden;
     width: 30%;
@@ -139,5 +139,4 @@ figure img:hover {
         width: 75%;
         margin: 0;
     }
-}
 }
