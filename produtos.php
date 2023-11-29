@@ -1,6 +1,11 @@
 
 <?php
 require_once("db.php");
+session_start();
+if (!isset($_SESSION['autenticado']) || $_SESSION['autenticado'] !== true) {
+    header("Location: loginUsuario.php");
+    exit;
+}
 
 $query = "SELECT * FROM tb_produto WHERE fl_produto_ativo = true";
 
